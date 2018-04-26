@@ -1,0 +1,55 @@
+{% extends 'mainapp/base.html' %} {% block body %}
+
+<div class="jumbotron bgregister">
+    <h1 class="display-4 text-center">Join the MyFace community...</h1>
+    <div class="container">
+        <div class="col-md-6 offset-3 p-2 dancemonkey">
+            <form action="{% url 'mainapp:register' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="row p-2">
+                    <div class="col">Name</div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <input type="text" class="form-control" name="html_username" placeholder="Enter your name">
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col">Email address</div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <input type="text" class="form-control" name="html_email" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">Password</div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <input type="text" class="form-control" name="html_password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">Confirm Password</div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <input type="text" class="form-control" name="html_confirm" placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col">
+                        <button class="btn btn-primary" role="submit">Sign Up</button>
+                    </div>
+                </div>
+                {% include 'mainapp/errors.html' %}
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

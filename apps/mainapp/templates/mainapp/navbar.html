@@ -1,0 +1,34 @@
+
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+    <a class="navbar-brand" href="{% url 'mainapp:index' %}">MyFace</a>
+
+    <form action="{% url 'mainapp:search_users' %}" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" name="html_query" type="search" placeholder="Search" aria-label="Search">
+    </form>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto mr-5">
+                {% if request.session.user_id %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">{{ request.session.username }}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'mainapp:index' %}">Expenses</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'mainapp:logout' %}">Logout</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </a>
+                        <div class="dropdown-menu bg-primary mr-5" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item text-light" href="{% url 'mainapp:register' %}">Sign Up</a>
+                            <a class="dropdown-item text-light" href="{% url 'mainapp:login' %}">Log In</a>
+                        </div>
+                    </li>
+                {% endif %}
+        </ul>
+    </div>
+</nav>
