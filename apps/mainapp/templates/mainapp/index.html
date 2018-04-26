@@ -1,7 +1,23 @@
 {% extends 'mainapp/base.html' %} {% block body %}
 
 <div class="container">
-    <h1>This is the MainApp index file, bitches</h1>
+    {% if request.session.user_id %}
+    <h2>You're logged in to MyFace</h2>
+    {% else %}
+    <div class="jumbotron mt-5">
+        <div class="row justify-content-center">
+            <h1 class="display-4">Welcome to MyFace</h1>
+        </div>
+        <div class="row justify-content-center mt-3">
+                <h1 class="display-5">Get started:</h1>
+            </div>
+        <div class="row justify-content-center mt-3">
+            <a class="btn btn-success mr-3" href="{% url 'mainapp:register' %}">Sign Up</a> or
+            <a class="btn btn-light ml-3" href="{% url 'mainapp:login' %}">Log In</a>
+        </div>
+    </div>
+
+    {% endif %}
 </div>
 
 {% endblock %}

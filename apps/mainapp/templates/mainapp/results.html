@@ -2,18 +2,18 @@
 
 <div class="container mt-3">
     <div class="row">
-        {% for result in users %}
+        {% for user in users %}
         <div class="col-3 usercard">
             <div class="row justify-content-between mx-auto">
-                <p align-middle>{{ result.username }}</p>
-                {% if result.is_followed %}
-                <a href="{% url 'mainapp:unfollow' %}" class="btn btn-warning">Unfollow</a>
+                <p align-middle>{{ user.username }}</p>
+                {% if user.id in follows %}
+                <a href="{% url 'mainapp:unfollow' following_id=user.id %}" class="btn btn-warning">Unfollow</a>
                 {% else %}
-                <a href="{% url 'mainapp:follow' %}" class="btn btn-success">Follow</a>
+                <a href="{% url 'mainapp:follow' following_id=user.id %}" class="btn btn-success">Follow</a>
                 {% endif %}
             </div>
             <hr>
-            <p class="mx-auto jdate">Joined on {{ result.created_at }}</p>
+            <p class="mx-auto jdate">Joined on {{ user.created_at }}</p>
 
         </div>
         {% endfor %}

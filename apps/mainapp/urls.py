@@ -13,7 +13,6 @@ urlpatterns = [
     path('search_users', views.search_users, name = 'search_users'),
     path('results/<str:term>', views.results, name = 'results'),
 
-    path('follow', views.follow, name = 'follow'),
-    path('unfollow', views.unfollow, name = 'unfollow'),
-
+    path('follow/<int:following_id>', views.follow, name = 'follow'),
+    path('unfollow/<int:following_id>', views.unfollow, name = 'unfollow'),
 ]

@@ -8,6 +8,23 @@ import apps.mainapp.models as m
 def index(request):
     return render(request, 'mainapp/index.html')
 
+def follow(request, following_id):
+    print('****{}'.format(following_id))
+    if 'user_id' in request.session == following_id:
+        messages.error(request, 'You cannot follow yourself')
+        return redirect('mainapp:index')
+    else:
+        following = m.Following.objects.create(
+            follower_id = request.session['user_id'],
+            following_id = following_id)
+        
+    return render(request, 'mainapp/index.html')
+
+def unfollow(request, following_id):
+    follow = m.Following.objects.get(following_id = following_id)
+    follow.delete()
+    return render(request, 'mainapp/index.html')
+
 def register(request):
     if 'user_id' in request.session:
         return redirect('mainapp:index')
@@ -59,14 +76,17 @@ def search_users(request):
     return redirect('mainapp:results', term)
 
 def results(request, term):
+    matching_users = m.User.objects.filter(Q(username__icontains=term) | Q(email__icontains=term)).exclude(id=request.session['user_id'])
+    users_being_followed = m.Following.objects.filter(follower_id=request.session['user_id'])
+    matching_followed = []
+
+    for follow in users_being_followed:
+        matching_followed.append(follow.following_id)
+
     context = {
-        'users' : m.User.objects.filter(Q(username__icontains=term) | Q(email__icontains=term))
+        'users':matching_users,
+        'follows':matching_followed,
     }
-    print(context)
+
     return render(request, 'mainapp/results.html', context)
 
-def follow(request):
-    pass
-
-def unfollow(request):
-    pass

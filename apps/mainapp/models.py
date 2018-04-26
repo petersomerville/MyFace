@@ -11,8 +11,9 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class Following(models.Model):
-    follower_id = models.IntegerField()
-    following_id = models.IntegerField()
+
+    follower = models.ForeignKey(User, related_name='is_following', on_delete=models.CASCADE, default=0)
+    following = models.ForeignKey(User, related_name='followed_by', on_delete=models.CASCADE, default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

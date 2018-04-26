@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand navbar-dark bg-primary">
     <a class="navbar-brand" href="{% url 'mainapp:index' %}">MyFace</a>
 
@@ -8,27 +7,18 @@
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto mr-5">
-                {% if request.session.user_id %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">{{ request.session.username }}</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'mainapp:index' %}">Expenses</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'mainapp:logout' %}">Logout</a>
-                    </div>
-                </li>
-                {% else %}
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Account
-                        </a>
-                        <div class="dropdown-menu bg-primary mr-5" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item text-light" href="{% url 'mainapp:register' %}">Sign Up</a>
-                            <a class="dropdown-item text-light" href="{% url 'mainapp:login' %}">Log In</a>
-                        </div>
-                    </li>
-                {% endif %}
+            {% if request.session.user_id %}
+            <li class="nav-item dropdown">
+                <a class="btn btn-outline-light mr-2" href="{% url 'mainapp:index' %}">{{request.session.username}}</a>
+                <a class="btn btn-outline-dark" href="{% url 'mainapp:logout' %}">Logout</a>
+
+            </li>
+            {% else %}
+            <li class="nav-item dropdown">
+                <a class="btn btn-success mr-2" href="{% url 'mainapp:register' %}">Sign Up</a>
+                <a class="btn btn-light" href="{% url 'mainapp:login' %}">Log In</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
