@@ -1,23 +1,95 @@
-{% extends 'mainapp/base.html' %} {% block body %}
+{% extends 'mainapp/base.html' %} {% block body %} {% if request.session.user_id %}
 
-<div class="container">
-    {% if request.session.user_id %}
-    <h2>You're logged in to MyFace</h2>
-    {% else %}
-    <div class="jumbotron mt-5">
-        <div class="row justify-content-center">
-            <h1 class="display-4">Welcome to MyFace</h1>
-        </div>
-        <div class="row justify-content-center mt-3">
-                <h1 class="display-5">Get started:</h1>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column text-right">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'mainapp:index' %}">
+                            <h5>{{request.session.username}}</h5>
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Following
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Followers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Photos
+                        </a>
+                    </li>
+
+                </ul>
             </div>
-        <div class="row justify-content-center mt-3">
-            <a class="btn btn-success mr-3" href="{% url 'mainapp:register' %}">Sign Up</a> or
-            <a class="btn btn-light ml-3" href="{% url 'mainapp:login' %}">Log In</a>
-        </div>
-    </div>
+        </nav>
 
-    {% endif %}
-</div>
+        <main role="main" class="pt-3 main-static">
 
-{% endblock %}
+            <div class="main-scroller px-4">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, blanditiis id nobis harum illo neque cupiditate
+                    non rerum? Explicabo ab nobis qui voluptas laudantium dolorum, quis ullam minus laboriosam doloribus
+                    soluta sunt cupiditate. Quo vitae tenetur est repellendus eligendi iusto placeat? Explicabo nulla expedita
+                    quod ea ipsa ut aperiam nisi quidem ab? Aperiam voluptates quia pariatur cupiditate autem quidem corporis
+                    aliquam omnis. Dicta tempore id voluptatem deleniti soluta accusamus omnis saepe enim nemo provident
+                    distinctio sapiente voluptas delectus repudiandae expedita sit suscipit velit temporibus autem, ipsam
+                    rem consequuntur modi quam? Unde eos sapiente, veritatis quibusdam minima praesentium quasi. Accusantium
+                    praesentium provident eaque tempore! Neque fuga incidunt repudiandae, laborum sit cumque pariatur voluptatibus
+                    nam tenetur assumenda nostrum quia nesciunt vel rerum eius, consequatur culpa excepturi molestiae consequuntur
+                    ipsum. Eaque dolores illum, hic amet error nihil ipsum a suscipit rem ad aliquid magnam, delectus quisquam
+                    voluptates sed. Molestiae impedit saepe expedita suscipit aut possimus dignissimos nostrum, quis nisi
+                    fugit dolor, dolorum itaque odit alias, illum debitis delectus! Optio consequuntur, quod iusto, expedita
+                    blanditiis, quaerat quidem molestiae excepturi consequatur id omnis reprehenderit. Recusandae sint, reiciendis
+                    sequi beatae placeat explicabo quibusdam molestias culpa sed nam consequatur asperiores porro itaque
+                    voluptas at voluptate? Libero doloremque magni totam fuga quaerat corporis voluptatem commodi at explicabo,
+                    eaque eveniet ab? Neque rem vel facere aut totam quidem cum repellendus corporis minus, nisi ab iure
+                    exercitationem veritatis doloribus nostrum beatae assumenda debitis eius reprehenderit pariatur at quisquam
+                    sed laudantium! Tempore a voluptate est nulla unde dolore autem exercitationem, quod, error architecto,
+                    fugit odio. Sit, doloremque, optio aspernatur ut placeat explicabo, nam laboriosam culpa inventore possimus
+                    ipsa voluptatem quaerat! In rem quidem nesciunt ipsum animi, sint nobis consequatur rerum cumque ullam
+                    veniam? Quod sint harum suscipit accusantium, debitis id reiciendis veniam. Modi, rem reiciendis? Aspernatur
+                    voluptates laborum vitae atque in fugit earum accusantium, obcaecati dolorem excepturi corrupti neque
+                    illo eligendi ipsum sit nobis architecto explicabo reprehenderit animi! Amet illum at perferendis enim
+                    impedit minus iusto dicta ullam quaerat temporibus accusamus minima sint aut alias id, ipsum delectus
+                    assumenda corporis esse labore eum dolore maxime? Laboriosam, hic? Cupiditate cumque quaerat non, nulla
+                    enim omnis quos laboriosam ipsa laborum ea neque odio labore dolor blanditiis hic ex corporis? Eaque
+                    rem quis itaque at nobis doloribus alias adipisci, officia consequatur. Laborum dolorem voluptate expedita
+                    incidunt. Exercitationem qui quos aspernatur sapiente? Adipisci accusantium, iure, quisquam recusandae
+                    porro, ipsa nam fuga provident deserunt minima veniam facere nemo? Eveniet ipsa tenetur inventore eum
+                    illo? Aspernatur ad porro, magnam aliquam corporis laborum ullam quos magni quasi obcaecati laboriosam
+                    pariatur voluptates recusandae nemo quisquam mollitia dolorem a delectus provident doloremque exercitationem.
+                    Minima illo perferendis ipsum assumenda labore deleniti dolor, consequuntur mollitia cupiditate ullam
+                    cum sed itaque voluptatum distinctio voluptates quia dolorem numquam maiores iure atque. Fuga maiores
+                    pariatur, necessitatibus, deserunt assumenda laboriosam itaque aspernatur quaerat temporibus molestiae
+                    provident ex enim! Delectus facilis, laboriosam, dolor quidem ipsam voluptatem ullam magni inventore
+                    esse officiis odit! Voluptatibus eveniet accusamus, earum iure numquam veniam iste laborum provident
+                    deserunt aperiam voluptas sint voluptates!</p>
+            </div>
+
+
+            {% else %}
+            <div class="container">
+
+                <div class="jumbotron mt-3">
+                    <div class="row justify-content-center">
+                        <h1 class="display-4">Welcome to MyFace</h1>
+                    </div>
+                    <div class="row justify-content-center mt-3">
+                        <h1 class="display-5">Get started:</h1>
+                    </div>
+                    <div class="row justify-content-center mt-3">
+                        <a class="btn btn-success mr-3" href="{% url 'mainapp:register' %}">Sign Up</a> or
+                        <a class="btn btn-light ml-3" href="{% url 'mainapp:login' %}">Log In</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %} {% endblock %}

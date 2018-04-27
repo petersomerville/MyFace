@@ -15,3 +15,47 @@
 .jdate {
     font-size: 0.7em;
 }
+
+.jumbotron {
+    height: 75vh;
+}
+
+.navbar {
+    position: -webkit-sticky;
+    position: sticky;    
+}
+
+.sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+    height: calc(100vh - 80px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.navbar-brand {
+    flex-basis:170px;
+    flex-shrink: 0px;
+    min-width: 170px;  
+}
+
+.sidebar {
+    flex-basis:200px;
+    flex-shrink: 0px;
+    min-width: 200px;
+} 
+
+.main-static {
+    position: -webkit-static;
+    position: static;
+    flex: 1;
+}
+
+.main-scroller {
+    height: calc(100vh - 80px);
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
