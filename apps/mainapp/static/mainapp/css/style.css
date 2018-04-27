@@ -12,6 +12,26 @@
     box-shadow: 3px 3px 5px;
 }
 
+.writepost {
+    flex-basis:600px;
+    flex-shrink: 1px;
+    min-width: 200px;
+    height: 150px; 
+    border: 1px solid lightgray; 
+    padding: 5px;
+}
+
+.postcard {
+    background-color: lightgray;
+    margin: 10px 10px 30px 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 5px;
+}
+
+.postauthor {
+    font-size: 0.8em;
+}
+
 .jdate {
     font-size: 0.7em;
 }

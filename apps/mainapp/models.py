@@ -11,7 +11,6 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class Following(models.Model):
-
     follower = models.ForeignKey(User, related_name='is_following', on_delete=models.CASCADE, default=0)
     following = models.ForeignKey(User, related_name='followed_by', on_delete=models.CASCADE, default=0)
 
@@ -19,7 +18,10 @@ class Following(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class Post(models.Model):
-    
+    post_contents = models.CharField(max_length=400, null=False, default=0)
+
+    author = models.ForeignKey(User, related_name='authored_posts', on_delete=models.CASCADE, default=0)
+    user_wall = models.ForeignKey(User, related_name='wall_post', on_delete=models.CASCADE, default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
